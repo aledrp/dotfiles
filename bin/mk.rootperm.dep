@@ -1,0 +1,11 @@
+#!/bin/bash
+
+"""
+action: add all perm to root in sh*, recursively 
+
+author: aledrc'
+
+"""
+
+rperm=700
+#sudo /usr/bin/chmod -vR $rperm sh*

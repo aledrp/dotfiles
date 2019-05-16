@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#author: aledrc
+
+fpath=~/.bash_history
+size=$(wc -l $fpath)
+
+echo "Storing $size bash_history lines in the sync folder."
+echo "Executing cmd [metainfo=$1] .."
+sleep 1
+
+metainfo=$1
+date=$(date +%d%m%y)
+filename=$date\-$metainfo.bash_history
+/usr/bin/sort -u ~/.bash_history > ~/dropbox/$filename
+
+echo
+echo "Wrote: $(wc -l ~/dropbox/$filename) sorted, unique lines."
+
+
+

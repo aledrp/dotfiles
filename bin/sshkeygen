@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#[]check if $1 is your email
+
+# Start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+
+ssh-keygen -t rsa -b 4096 -C $1
+
+# Lists the files in your .ssh directory, if they exist
+ls -al ~/.ssh
+
+# Add your SSH private key to the ssh-agent.
+ssh-add ~/.ssh/id_rsa
+
+# Verify that you have a private key generated and loaded into SSH.
+ssh-add -l
+ssh-add -l -E md5  #If you're using OpenSSH 6.8 or newer
+exit 0
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+#author: aledrc
+
+echo "Setting execution permission to root, recursively."
+for dir in ~/{bin,exec,utils}; do
+    chmod -vR +100 $dir
+done;
+echo 'done'
